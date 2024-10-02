@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "./styles/settings";
+@import "./styles/elements";
+@import "./styles/objects";
+/* probably don't need components also, lets see how this plays out */
+@import "./styles/components";
