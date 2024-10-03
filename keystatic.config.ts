@@ -1,27 +1,27 @@
-import { config, fields, collection } from '@keystatic/core';
+import { config } from "@keystatic/core";
+import { posts } from "./src/keystatic-collections/posts";
+import { pages } from "./src/keystatic-collections/pages";
+import { SiteSettings } from "./src/keystatic-collections/site-settings";
 
 export default config({
+  ui: {
+    brand: {
+      name: "the themes",
+    },
+    navigation: {
+      Content: ["pages", "posts"],
+      Settings: ["SiteSettings"],
+      "Built by 'THE' themes": [],
+    },
+  },
   storage: {
-    kind: 'local',
+    kind: "local",
   },
   collections: {
-    posts: collection({
-      label: 'Posts',
-      slugField: 'title',
-      path: 'src/content/posts/*',
-      format: { contentField: 'content' },
-      schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        content: fields.markdoc({
-          label: 'Content',
-          options: {
-            image: {
-              directory: 'src/assets/images/posts',
-              publicPath: '../../assets/images/posts/',
-            },
-          },
-        }),
-      },
-    }),
+    posts,
+    pages,
+  },
+  singletons: {
+    SiteSettings,
   },
 });
