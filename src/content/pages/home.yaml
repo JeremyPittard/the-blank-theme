@@ -1,4 +1,8 @@
 title: Home
 content:
-  - discriminant: heading
-    value: Some text
+  - discriminant: hero
+    value:
+      image: content/0/value/image.jpg
+      title: The Themes!
+      description: get some themes up ya
+      cta: []

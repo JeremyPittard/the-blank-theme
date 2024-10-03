@@ -14,8 +14,27 @@ export const pages = collection({
             image: fields.image({ label: "Image" }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description" }),
-            cta: fields.text({ label: "CTA" }),
-            secondaryCta: fields.text({ label: "Secondary CTA" }),
+            cta: fields.blocks(
+              {
+                internalLink: {
+                  label: "Internal Link",
+                  schema: fields.relationship({
+                    label: "Internal Link",
+                    description: "Select a page on this site",
+                    collection: "pages",
+                  }),
+                },
+                externalLink: {
+                  label: "External Link",
+                  schema: fields.url({
+                    label: "External Link",
+                    description:
+                      "paste a link to an external site (this will open in a new tab.)",
+                  }),
+                },
+              },
+              { label: "CTA", validation: { length: { max: 2 } } }
+            ),
           }),
         },
         pageHeader: {
