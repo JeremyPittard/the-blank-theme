@@ -1,7 +1,10 @@
 import { config } from "@keystatic/core";
 import { posts } from "./src/keystatic-collections/posts";
 import { pages } from "./src/keystatic-collections/pages";
-import { SiteSettings } from "./src/keystatic-collections/site-settings";
+import { seoSettings } from "./src/keystatic-collections/site-settings";
+import { navigationSettings } from "./src/keystatic-collections/navigation-settings";
+import { faqs } from "./src/keystatic-collections/faqs";
+import { reviews } from "./src/keystatic-collections/reviews";
 
 export default config({
   ui: {
@@ -9,8 +12,8 @@ export default config({
       name: "the themes",
     },
     navigation: {
-      Content: ["pages", "posts"],
-      Settings: ["SiteSettings"],
+      Content: ["pages", "posts", "---", "reviews", "faqs"],
+      Settings: ["seoSettings", "navigationSettings"],
       "Built by 'THE' themes": [],
     },
   },
@@ -20,8 +23,11 @@ export default config({
   collections: {
     posts,
     pages,
+    faqs,
+    reviews,
   },
   singletons: {
-    SiteSettings,
+    seoSettings,
+    navigationSettings,
   },
 });
