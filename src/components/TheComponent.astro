@@ -1,0 +1,58 @@
+---
+import Hero from "./blocks/Hero.astro";
+import PageHeader from "./blocks/PageHeader.astro";
+import TextWithImage from "./blocks/TextWithImage.astro";
+import ImageGrid from "./blocks/ImageGrid.astro";
+import FAQBlock from "./blocks/Faqs.astro";
+import ReviewsBlock from "./blocks/Reviews.astro";
+import BlogListBlock from "./blocks/BlogList.astro";
+import CTA from "./blocks/CTA.astro";
+import Breakout from "./blocks/Breakout.astro";
+import BlockQuote from "./blocks/BlockQuote.astro";
+// import RichText from './blocks/RichText.astro';
+
+import type {
+  HeroProps,
+  pageHeader,
+  TextWithImageProps,
+  ImageGridProps,
+  FAQBlockProps,
+  ReviewsBlockProps,
+  BlogListBlockProps,
+  CTAProps,
+  BreakoutProps,
+  BlockQuoteProps,
+  RichTextPros,
+} from "../types/blocks";
+
+export interface Props {
+  block: {
+    type: string;
+    props: any;
+  };
+}
+
+const { block } = Astro.props;
+
+interface ComponentMap {
+  [key: string]: any;
+}
+
+const componentMap: ComponentMap = {
+  hero: Hero,
+  pageHeader: PageHeader,
+  textWithImage: TextWithImage,
+  imageGrid: ImageGrid,
+  faqBlock: FAQBlock,
+  reviews: ReviewsBlock,
+  BlogList: BlogListBlock,
+  cta: CTA,
+  breakout: Breakout,
+  blockquote: BlockQuote,
+  //   richText: RichText,
+};
+
+const Component = componentMap[block.type];
+---
+
+{Component ? <Component {...block.props} /> : null}

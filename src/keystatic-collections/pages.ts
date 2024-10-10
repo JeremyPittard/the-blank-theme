@@ -54,8 +54,27 @@ export const pages = collection({
             image: fields.image({ label: "Image" }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description" }),
-            cta: fields.text({ label: "CTA" }),
-            secondaryCta: fields.text({ label: "Secondary CTA" }),
+            cta: fields.blocks(
+              {
+                internalLink: {
+                  label: "Internal Link",
+                  schema: fields.relationship({
+                    label: "Internal Link",
+                    description: "Select a page on this site",
+                    collection: "pages",
+                  }),
+                },
+                externalLink: {
+                  label: "External Link",
+                  schema: fields.url({
+                    label: "External Link",
+                    description:
+                      "paste a link to an external site (this will open in a new tab.)",
+                  }),
+                },
+              },
+              { label: "CTA", validation: { length: { max: 2 } } }
+            ),
             imageSide: fields.select({
               label: "Image Side",
               defaultValue: "left",
@@ -73,7 +92,27 @@ export const pages = collection({
               image: fields.image({ label: "Image" }),
               title: fields.text({ label: "Title" }),
               description: fields.text({ label: "Description" }),
-              link: fields.text({ label: "CTA" }),
+              link: fields.blocks(
+                {
+                  internalLink: {
+                    label: "Internal Link",
+                    schema: fields.relationship({
+                      label: "Internal Link",
+                      description: "Select a page on this site",
+                      collection: "pages",
+                    }),
+                  },
+                  externalLink: {
+                    label: "External Link",
+                    schema: fields.url({
+                      label: "External Link",
+                      description:
+                        "paste a link to an external site (this will open in a new tab.)",
+                    }),
+                  },
+                },
+                { label: "CTA", validation: { length: { max: 1 } } }
+              ),
             }),
             { validation: { length: { min: 1, max: 6 } } }
           ),
@@ -95,7 +134,27 @@ export const pages = collection({
           schema: fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description" }),
-            cta: fields.text({ label: "CTA" }),
+            cta: fields.blocks(
+              {
+                internalLink: {
+                  label: "Internal Link",
+                  schema: fields.relationship({
+                    label: "Internal Link",
+                    description: "Select a page on this site",
+                    collection: "pages",
+                  }),
+                },
+                externalLink: {
+                  label: "External Link",
+                  schema: fields.url({
+                    label: "External Link",
+                    description:
+                      "paste a link to an external site (this will open in a new tab.)",
+                  }),
+                },
+              },
+              { label: "CTA", validation: { length: { max: 2 } } }
+            ),
           }),
         },
         breakout: {
@@ -103,7 +162,27 @@ export const pages = collection({
           schema: fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description" }),
-            cta: fields.text({ label: "CTA" }),
+            cta: fields.blocks(
+              {
+                internalLink: {
+                  label: "Internal Link",
+                  schema: fields.relationship({
+                    label: "Internal Link",
+                    description: "Select a page on this site",
+                    collection: "pages",
+                  }),
+                },
+                externalLink: {
+                  label: "External Link",
+                  schema: fields.url({
+                    label: "External Link",
+                    description:
+                      "paste a link to an external site (this will open in a new tab.)",
+                  }),
+                },
+              },
+              { label: "CTA", validation: { length: { max: 2 } } }
+            ),
           }),
         },
         blockquote: {

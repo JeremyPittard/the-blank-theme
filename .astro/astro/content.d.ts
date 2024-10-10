@@ -157,16 +157,28 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdoc"] };
+"new-post.mdoc": {
+	id: "new-post.mdoc";
+  slug: "new-post";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdoc"] };
 };
 
 	};
 
 	type DataEntryMap = {
 		"pages": {
+"about-us": {
+	id: "about-us";
+  collection: "pages";
+  data: InferEntrySchema<"pages">
+};
 "home": {
 	id: "home";
   collection: "pages";
-  data: any
+  data: InferEntrySchema<"pages">
 };
 };
 "site-settings": {
