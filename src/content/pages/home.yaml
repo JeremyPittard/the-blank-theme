@@ -2,7 +2,7 @@ title: Home
 content:
   - discriminant: hero
     value:
-      image: content/0/value/image.jpg
+      image: /images/hero/home/content/0/value/image.jpg
       title: The Themes!
       description: get some themes up ya
       cta: []

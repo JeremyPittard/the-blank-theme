@@ -27,8 +27,8 @@ import type {
 
 export interface Props {
   block: {
-    type: string;
-    props: any;
+    discriminant: string;
+    value: any;
   };
 }
 
@@ -52,7 +52,7 @@ const componentMap: ComponentMap = {
   //   richText: RichText,
 };
 
-const Component = componentMap[block.type];
+const Component = componentMap[block.discriminant];
 ---
 
-{Component ? <Component {...block.props} /> : null}
+{Component ? <Component {...block} /> : null}

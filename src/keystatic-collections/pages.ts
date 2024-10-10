@@ -11,7 +11,11 @@ export const pages = collection({
         hero: {
           label: "Hero",
           schema: fields.object({
-            image: fields.image({ label: "Image" }),
+            image: fields.image({
+              label: "Image",
+              directory: "public/images/hero/",
+              publicPath: "/images/hero/",
+            }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description" }),
             cta: fields.blocks(

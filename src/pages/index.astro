@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import { getEntry } from "astro:content";
+import { type PageBlock } from "../types/blocks";
+import TheComponent from "../components/TheComponent.astro";
 
 const homePage = await getEntry("site-settings", "navigation").then(
   (entry) => entry.data.homePage
@@ -9,6 +11,8 @@ const homePage = await getEntry("site-settings", "navigation").then(
 
 const entry = getEntry("pages", homePage);
 const { data } = await entry;
+
+const blocks: PageBlock[] = data.content;
 ---
 
 <Layout title={data.title}>
@@ -22,5 +26,10 @@ const { data } = await entry;
       below to view a post in the collection.
     </p>
     <h2>Posts</h2>
+    {
+      blocks.map((block) => {
+        return <TheComponent block={block} />;
+      })
+    }
   </div>
 </Layout>

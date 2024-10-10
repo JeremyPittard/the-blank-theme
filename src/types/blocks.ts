@@ -49,3 +49,21 @@ export type BlockQuoteProps = {
 };
 
 export type RichTextPros = any; //TODO ammend this when I know what the object is
+
+export type PageBlockValues =
+  | BlockQuoteProps
+  | RichTextPros
+  | HeroProps
+  | pageHeader
+  | TextWithImageProps
+  | ImageGridProps
+  | FAQBlockProps
+  | ReviewsBlockProps
+  | BlogListBlockProps
+  | CTAProps
+  | BreakoutProps;
+
+export type PageBlock = {
+  discriminant: string;
+  value: PageBlockValues;
+};
