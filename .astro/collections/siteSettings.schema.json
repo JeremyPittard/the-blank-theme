@@ -1,14 +1,17 @@
 {
-  "$ref": "#/definitions/pages",
+  "$ref": "#/definitions/siteSettings",
   "definitions": {
-    "pages": {
+    "siteSettings": {
       "type": "object",
       "properties": {
         "title": {
           "type": "string"
         },
-        "content": {
-          "type": "array"
+        "logo": {
+          "type": "string"
+        },
+        "sitewideBanner": {
+          "type": "string"
         },
         "$schema": {
           "type": "string"
@@ -16,7 +19,8 @@
       },
       "required": [
         "title",
-        "content"
+        "logo",
+        "sitewideBanner"
       ],
       "additionalProperties": false
     }

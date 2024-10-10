@@ -1,12 +1,13 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
 
 // Generate static pages
 export async function getStaticPaths() {
-  const pages = await getCollection("pages");
-  pages.forEach((page) => {
-    console.log(page);
+  const settings = await getEntry("site-settings", "navigation");
+  const pages = await getCollection("pages", (page) => {
+    return page.id != settings.data.homePage;
   });
   return pages.map((page) => ({
     params: { title: page.id },
@@ -20,4 +21,11 @@ const { page } = Astro.props;
 
 <Layout title={title}>
   <h1>{page.data.title}</h1>
+  <ul>
+    {
+      page.data.content.map((item, index) => {
+        return <li>{index}</li>;
+      })
+    }
+  </ul>
 </Layout>

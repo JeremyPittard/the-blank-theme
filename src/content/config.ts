@@ -14,7 +14,7 @@ const pages = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
-    content: z.any(),
+    content: z.array(z.any()),
   }),
 });
 

@@ -6,3 +6,5 @@ content:
       title: The Themes!
       description: get some themes up ya
       cta: []
+  - discriminant: blockquote
+    value: new blockqutoe

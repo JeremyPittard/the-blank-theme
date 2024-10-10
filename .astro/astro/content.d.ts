@@ -187,7 +187,17 @@ declare module 'astro:content' {
   collection: "site-settings";
   data: any
 };
+"site-details": {
+	id: "site-details";
+  collection: "site-settings";
+  data: any
 };
+};
+"siteSettings": Record<string, {
+  id: string;
+  collection: "siteSettings";
+  data: any;
+}>;
 
 	};
 
